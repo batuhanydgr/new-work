@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { categories } from "@/data/categories";
 
 export default function Categories() {
   return (
     <section className="bg-cream py-20 md:py-28">
-      <Container>
+      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Koleksiyon"
           title="Gayrimenkul kategorileri"
@@ -40,7 +39,7 @@ export default function Categories() {
             </Link>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

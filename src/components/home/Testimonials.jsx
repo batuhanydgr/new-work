@@ -1,4 +1,3 @@
-import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { testimonials } from "@/data/site";
 import { cn } from "@/utils/cn";
@@ -6,7 +5,7 @@ import { cn } from "@/utils/cn";
 export default function Testimonials() {
   return (
     <section className="bg-paper py-20 md:py-28">
-      <Container>
+      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Referans"
           title="Müşteri yorumları"
@@ -39,7 +38,7 @@ export default function Testimonials() {
             );
           })}
         </ul>
-      </Container>
+      </div>
     </section>
   );
 }
