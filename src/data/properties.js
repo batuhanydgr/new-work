@@ -3,6 +3,7 @@ import { photo } from "@/lib/images";
 export const properties = [
   {
     slug: "bebek-bogaz-cizgisinde-villa",
+    listingCode: "VL-0001",
     title: "Boğaz Çizgisinde Bahçeli Villa",
     status: "sale",
     type: "villa",
@@ -43,6 +44,7 @@ export const properties = [
   },
   {
     slug: "nisantasi-galeri-katli-rezidans",
+    listingCode: "VL-0002",
     title: "Galeri Katlı Nişantaşı Rezidansı",
     status: "sale",
     type: "rezidans",
@@ -76,6 +78,7 @@ export const properties = [
   },
   {
     slug: "yalikavak-deniz-manzarali-villa",
+    listingCode: "VL-0003",
     title: "Yalıkavak’ta Denize İnen Villa",
     status: "sale",
     type: "villa",
@@ -109,6 +112,7 @@ export const properties = [
   },
   {
     slug: "alacati-tas-avlu-evi",
+    listingCode: "VL-0004",
     title: "Alaçatı Taş Avlu Evi",
     status: "sale",
     type: "mustakil",
@@ -142,6 +146,7 @@ export const properties = [
   },
   {
     slug: "etiler-kiralik-sehir-dairesi",
+    listingCode: "VL-0005",
     title: "Etiler’de Yüksek Kat Daire",
     status: "rent",
     type: "daire",
@@ -175,6 +180,7 @@ export const properties = [
   },
   {
     slug: "levent-plaza-ofis-kati",
+    listingCode: "VL-0006",
     title: "Levent Plaza’da Ofis Katı",
     status: "sale",
     type: "ticari",
@@ -208,6 +214,7 @@ export const properties = [
   },
   {
     slug: "urla-bag-evi",
+    listingCode: "VL-0007",
     title: "Urla Bağları İçinde Ev",
     status: "sale",
     type: "mustakil",
@@ -240,6 +247,7 @@ export const properties = [
   },
   {
     slug: "moda-sahil-dairesi",
+    listingCode: "VL-0008",
     title: "Moda Sahiline Bakan Daire",
     status: "rent",
     type: "daire",
@@ -272,6 +280,7 @@ export const properties = [
   },
   {
     slug: "gocek-koy-manzarali-arsa",
+    listingCode: "VL-0009",
     title: "Göcek’te Köy Manzaralı Arsa",
     status: "sale",
     type: "arsa",
@@ -304,6 +313,7 @@ export const properties = [
   },
   {
     slug: "cankaya-kiralk-rezidans",
+    listingCode: "VL-0010",
     title: "Çankaya’da Bahçe Katı Rezidans",
     status: "rent",
     type: "rezidans",
@@ -336,6 +346,7 @@ export const properties = [
   },
   {
     slug: "lara-palmiye-villasi",
+    listingCode: "VL-0011",
     title: "Lara’da Palmiye Bahçeli Villa",
     status: "sale",
     type: "villa",
@@ -368,6 +379,7 @@ export const properties = [
   },
   {
     slug: "karakoy-kiralk-ticari-kat",
+    listingCode: "VL-0012",
     title: "Karaköy’de Cadde Üstü Ticari Kat",
     status: "rent",
     type: "ticari",

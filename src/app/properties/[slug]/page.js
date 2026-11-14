@@ -5,6 +5,8 @@ import { Bath, BedDouble, Mail, MapPin, Maximize, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import PropertyGallery from "@/components/properties/PropertyGallery";
+import PropertyMedia from "@/components/properties/PropertyMedia";
+import PropertyWhatsAppActions from "@/components/properties/PropertyWhatsAppActions";
 import PropertyCard from "@/components/properties/PropertyCard";
 import {
   getPropertyBySlug,
@@ -94,6 +96,9 @@ export default async function PropertyDetailPage({ params }) {
               <MapPin size={16} strokeWidth={1.5} className="text-bronze" />
               {property.district}, {property.city}
             </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.16em] text-stone">
+              İlan kodu: {property.listingCode}
+            </p>
           </div>
           <p className="font-display text-4xl text-ink md:text-5xl">
             {formatPrice(property.price, property.status)}
@@ -124,8 +129,15 @@ export default async function PropertyDetailPage({ params }) {
                 {agent.email}
               </a>
             </div>
-            <Button href={`/contact?ilan=${property.slug}`} className="mt-6 w-full">
-              Bu ilan için yazın
+            <PropertyWhatsAppActions
+              listingCode={property.listingCode}
+              title={property.title}
+              consultantName={agent.name}
+              consultantPhone={agent.whatsapp}
+              slug={property.slug}
+            />
+            <Button href={`/contact?ilan=${property.slug}`} variant="outline" className="mt-3 w-full">
+              İletişim formuyla yazın
             </Button>
           </aside>
         </div>
@@ -168,12 +180,22 @@ export default async function PropertyDetailPage({ params }) {
 
         <h2 className="mt-12 font-display text-3xl text-ink">Teknik bilgiler</h2>
         <dl className="mt-5 divide-y divide-mist border-y border-mist">
-          {property.specs.map(([label, value]) => (
+          {property.specs.filter(([label]) => label !== "Aidat" && label !== "Tapu").map(([label, value]) => (
             <div key={label} className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
               <dt className="text-[11px] uppercase tracking-[0.16em] text-stone">{label}</dt>
               <dd className="text-ink">{value}</dd>
             </div>
           ))}
+          <div className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-stone">Aidat</dt>
+            <dd className="text-ink">{property.dues || "Bilgi için danışınız"}</dd>
+          </div>
+          <div className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
+            <dt className="text-[11px] uppercase tracking-[0.16em] text-stone">Tapu bilgisi</dt>
+            <dd className="text-ink">
+              {property.deedType || property.specs.find(([label]) => label === "Tapu")?.[1] || "Bilgi için danışınız"}
+            </dd>
+          </div>
           {property.year ? (
             <div className="grid gap-1 py-4 sm:grid-cols-[200px_1fr] sm:gap-6">
               <dt className="text-[11px] uppercase tracking-[0.16em] text-stone">Yapım yılı</dt>
@@ -181,6 +203,8 @@ export default async function PropertyDetailPage({ params }) {
             </div>
           ) : null}
         </dl>
+
+        <PropertyMedia property={property} />
       </Container>
 
       {related.length > 0 ? (

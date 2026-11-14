@@ -1,11 +1,12 @@
 import { Suspense } from "react";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Container from "@/components/ui/Container";
 import ContactForm from "@/components/contact/ContactForm";
 import { contactInfo } from "@/data/site";
 import { getPropertyBySlug } from "@/data/properties";
 import { photo } from "@/lib/images";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata = {
   title: "İletişim",
@@ -51,11 +52,31 @@ export default function ContactPage({ searchParams }) {
                   {contactInfo.email}
                 </a>
               </li>
+              <li>
+                <a
+                  href={getWhatsAppUrl(contactInfo.whatsapp, "Merhaba, Velora Gayrimenkul ofisiyle iletişime geçmek istiyorum.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-3 hover:text-bronze"
+                >
+                  <MessageCircle size={18} strokeWidth={1.5} className="text-bronze" />
+                  WhatsApp
+                </a>
+              </li>
               <li className="flex items-center gap-3">
                 <Clock size={18} strokeWidth={1.5} className="text-bronze" />
                 {contactInfo.hours}
               </li>
             </ul>
+            <div className="mt-10 min-h-72 overflow-hidden border border-mist bg-mist">
+              <iframe
+                title="Velora Etiler ofisi haritası"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(`${contactInfo.address}, ${contactInfo.district}`)}&output=embed`}
+                className="h-full min-h-72 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
           <Suspense fallback={<ContactForm />}>
             <ContactPanel searchParams={searchParams} />

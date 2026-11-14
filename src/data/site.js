@@ -40,6 +40,7 @@ export const navLinks = [
 export const contactInfo = {
   phone: "+90 212 555 01 48",
   phoneHref: "tel:+902125550148",
+  whatsapp: "+90 536 732 37 99",
   email: "info@velora.com.tr",
   emailHref: "mailto:info@velora.com.tr",
   address: "Nispetiye Caddesi No: 42",

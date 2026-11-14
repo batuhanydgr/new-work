@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { consultants } from "@/data/consultants";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function Consultants() {
   return (
@@ -43,6 +44,15 @@ export default function Consultants() {
                   >
                     <Mail size={15} strokeWidth={1.5} className="shrink-0 text-bronze" />
                     {person.email}
+                  </a>
+                  <a
+                    href={getWhatsAppUrl(person.whatsapp, `Merhaba ${person.name}, Velora'daki ilanlar hakkında bilgi almak istiyorum.`)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-ink transition-colors hover:text-bronze"
+                  >
+                    <MessageCircle size={15} strokeWidth={1.5} className="text-bronze" />
+                    WhatsApp
                   </a>
                 </div>
               </article>

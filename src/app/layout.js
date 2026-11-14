@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, Outfit } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
           {children}
         </div>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
