@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f0ea;
+  --foreground: #171614;
+  --font-outfit: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --color-ink: #171614;
+  --color-ink-soft: #2c2926;
+  --color-paper: #f3f0ea;
+  --color-cream: #f8f6f2;
+  --color-mist: #e4dfd6;
+  --color-stone: #756f67;
+  --color-bronze: #a68456;
+  --color-bronze-deep: #8a6b3e;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #a68456;
+  color: #171614;
+}
+
+:focus-visible {
+  outline: 2px solid #a68456;
+  outline-offset: 3px;
+}
+
+#danismanlar {
+  scroll-margin-top: 6.5rem;
+}
